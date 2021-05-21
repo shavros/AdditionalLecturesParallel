@@ -2,7 +2,7 @@ package CW2;
 
 import java.util.*;
 
-public class LockPartiallyExternalTree {
+public class MyTree {
 
     static public List<Node> traversal(Node root, int key) {
         Node cur = root;
