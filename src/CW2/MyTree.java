@@ -75,7 +75,7 @@ public class MyTree {
         }
     }
 
-    static public boolean delete(Node root, int key) {
+    static public boolean remove(Node root, int key) {
         while (true) {
             if (root == null) return false;
             List<Node> searchResult = traversal(root, key);
@@ -249,7 +249,7 @@ public class MyTree {
                 int key = Math.abs(random.nextInt()) % 100000;
                 double p = Math.random();
                 if (p < x) insert(root, key);
-                else if (x <= p && p < 2*x) delete(root, key);
+                else if (x <= p && p < 2*x) remove(root, key);
                 else contains(root, key);
                 counter++;
             }
