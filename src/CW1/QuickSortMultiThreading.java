@@ -1,12 +1,10 @@
 package CW1;
 
-import java.io.*;
-import java.sql.SQLOutput;
 import java.util.Random;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
 
-public class QuickSortMutliThreading extends RecursiveTask<Integer> {
+public class QuickSortMultiThreading extends RecursiveTask<Integer> {
 
     int start, end;
     int[] arr;
@@ -41,7 +39,7 @@ public class QuickSortMutliThreading extends RecursiveTask<Integer> {
         return j + 1;
     }
 
-    public QuickSortMutliThreading(int start, int end, int[] arr)
+    public QuickSortMultiThreading(int start, int end, int[] arr)
     {
         this.arr = arr;
         this.start = start;
@@ -56,9 +54,9 @@ public class QuickSortMutliThreading extends RecursiveTask<Integer> {
 
         int p = partion(start, end, arr);
 
-        QuickSortMutliThreading left = new QuickSortMutliThreading(start, p - 1, arr);
+        QuickSortMultiThreading left = new QuickSortMultiThreading(start, p - 1, arr);
 
-        QuickSortMutliThreading right = new QuickSortMutliThreading(p + 1, end, arr);
+        QuickSortMultiThreading right = new QuickSortMultiThreading(p + 1, end, arr);
 
 
         left.fork();
@@ -80,7 +78,7 @@ public class QuickSortMutliThreading extends RecursiveTask<Integer> {
 
 
         pool.invoke(
-                new QuickSortMutliThreading(
+                new QuickSortMultiThreading(
                         0, n - 1, arr));
 
         System.out.println("");
